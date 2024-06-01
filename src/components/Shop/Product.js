@@ -4,7 +4,7 @@ export default class Product extends Component {
     constructor(props) {
         super(props)
 
-      
+
     }
 
     addToCart(productId) {
@@ -15,15 +15,16 @@ export default class Product extends Component {
 
 
     render() {
+        let { title, img, price, id } = this.props
         return (
             <div class="shop-item">
-                <span class="shop-item-title">{this.props.title}</span>
-                <img class="shop-item-image" src={this.props.img} />
+                <span class="shop-item-title">{title}</span>
+                <img class="shop-item-image" src={img} />
                 <div class="shop-item-details">
-                    <span class="shop-item-price">{this.props.price} </span>
+                    <span class="shop-item-price">{price} </span>
                     <button
                         class="btn btn-primary shop-item-button"
-                        type="button" onClick={this.addToCart.bind(this,this.props.id)}>
+                        type="button" onClick={this.addToCart.bind(this, id)}>
                         ADD TO CART
                     </button>
                 </div>

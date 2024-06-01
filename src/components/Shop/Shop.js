@@ -33,12 +33,13 @@ export default class Shop extends Component {
     }
     // add product to shopping cart
     addToCartHandle(Id) {
-        let getProduct = this.state.products.findIndex((product) => {
+        let getProduct = this.state.products.find((product) => {
             return product.id == Id
         })
+        console.log(getProduct)
         let product = this.state.products
         this.setState((prevState) => {
-            return { shoppingCart: [...prevState.shoppingCart, product[getProduct]] }
+            return { shoppingCart: [...prevState.shoppingCart, getProduct] }
         })
         console.log(this.state.shoppingCart)
     }
@@ -57,10 +58,9 @@ export default class Shop extends Component {
     }
     // remove all products of shopping cart
     removeAllOfCart() {
-        let shoppingCart = this.state.shoppingCart
-        shoppingCart.splice(0, shoppingCart.length)
+       
         this.setState({
-            shoppingCart: shoppingCart
+            shoppingCart: []
         })
 
     }
