@@ -1,32 +1,29 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class CartProduct extends Component {
-
-
+export default function CartProduct(props) {
 
 
-    removeProduct(productId) {
-
-        this.props.onRemove(productId)
 
 
+    const removeProduct = (productId) => {
+        props.onRemove(productId)
     }
 
-    render() {
-        let {title,img,id,price}=this.props
 
-        return (
-            <div class="cart-row">
-                <div class="cart-item cart-column">
-                    <img class="cart-item-image" src={img} width="100" height="100" />
-                    <span class="cart-item-title">{title}</span>
-                </div>
-                <span class="cart-price cart-column">{price}</span>
-                <div class="cart-quantity cart-column">
+    let { title, img, id, price } = props
 
-                    <button class="btn btn-danger" type="button" onClick={this.removeProduct.bind(this, id)}>REMOVE</button>
-                </div>
+    return (
+        <div class="cart-row">
+            <div class="cart-item cart-column">
+                <img class="cart-item-image" src={img} width="100" height="100" />
+                <span class="cart-item-title">{title}</span>
             </div>
-        )
-    }
+            <span class="cart-price cart-column">{price}</span>
+            <div class="cart-quantity cart-column">
+
+                <button class="btn btn-danger" type="button" onClick={() => removeProduct(id)}>REMOVE</button>
+            </div>
+        </div>
+    )
+
 }

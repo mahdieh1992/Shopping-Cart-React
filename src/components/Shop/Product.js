@@ -1,21 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Product extends Component {
-    constructor(props) {
-        super(props)
+export default function Product (props) {
 
 
-    }
-
-    addToCart(productId) {
-        this.props.addCart(productId)
+   const addToCart=(productId)=> {
+       props.addCart(productId)
 
 
     }
 
 
-    render() {
-        let { title, img, price, id } = this.props
+ 
+        let { title, img, price, id } = props
         return (
             <div class="shop-item">
                 <span class="shop-item-title">{title}</span>
@@ -24,11 +20,11 @@ export default class Product extends Component {
                     <span class="shop-item-price">{price} </span>
                     <button
                         class="btn btn-primary shop-item-button"
-                        type="button" onClick={this.addToCart.bind(this, id)}>
+                        type="button" onClick={()=>addToCart(id)}>
                         ADD TO CART
                     </button>
                 </div>
             </div>
         )
-    }
+ 
 }

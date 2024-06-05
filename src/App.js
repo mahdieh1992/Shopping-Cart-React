@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Shop from './components/Shop/Shop'
 import './App.css'
 
-export default class App extends Component {
+export default function App() {
 
-    render() {
-        return (
-            <div>
-                <Shop />
-            </div>
-        )
-    }
+    return (
+        <div>
+            <Shop />
+        </div>
+    )
 }
